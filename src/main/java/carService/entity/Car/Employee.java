@@ -1,7 +1,6 @@
 package carService.entity.Car;
 
 
-import carService.entity.CarHairService.CarRental;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

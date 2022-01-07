@@ -23,8 +23,14 @@
         <version.lombok>1.18.18</version.lombok>
         <version.mapstruct>1.4.2.Final</version.mapstruct>
         <version.mapstruct-lombok>0.2.0</version.mapstruct-lombok>
+        <spring.version>4.2.2.RELEASE</spring.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -82,6 +88,10 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

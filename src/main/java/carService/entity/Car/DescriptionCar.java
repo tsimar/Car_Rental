@@ -19,19 +19,22 @@ public class DescriptionCar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String carBrand;
     private String model;
     private String carType;
     private Date productionDate;
     private String color;
-    private int carMileage;
+    private double carMileage;
     private String statusRental;
     private String carStatus;
+ private Long carRentalDepartID;
+    public Long getId() {
+        return id;
+    }
 
     @ManyToOne
-
     private Reservation reservation;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "descriptionCar")

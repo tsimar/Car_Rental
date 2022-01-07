@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Data
@@ -23,12 +24,12 @@ public class CarRentalDepartment {
     private String city;
     private String address;
 
-//    @OneToMany (mappedBy = "carRentalDepartment")
-//    private List<Employee> employees;
+    @OneToMany (mappedBy = "carRentalDepartment")
+    private List<Employee> employees;
 
 
-//    @OneToMany (mappedBy = "carRentalDepartment")
-//    private List<DescriptionCar> descriptionCars;
+    @OneToMany (mappedBy = "carRentalDepartment")
+    private List<DescriptionCar> descriptionCars;
 
 
 

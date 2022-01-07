@@ -3,7 +3,6 @@ package carService.service.car;
 import carService.converter.mapper.car.CarDepartMainMapper;
 import carService.dto.entity.carHairService.car.CarDepartMainDTO;
 import carService.entity.Car.CarRentalDepartment;
-import carService.entity.Customer.User;
 import carService.repository.car.CarRentalDepartmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
