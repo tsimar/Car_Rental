@@ -29,14 +29,14 @@ public class CarRentalAndReservationConverter {
             newCarRentalDTO.setCommentsRental(modCarRental.getCommentsRental());
             newCarRentalDTO.setCommentsCustomer(modCarRental.getCommentsCustomer());
             List<ReservationDTO> reservationDTOS = new ArrayList<>();
-            for (Reservation modReservation : modCarRental.getReservations()) {
-                ReservationDTO reservationDTO = new ReservationDTO();
-                reservationDTO.setId(modReservation.getId());
-                reservationDTO.setReservationDate(modReservation.getReservationDate());
-                reservationDTO.setFromDateReservation(modReservation.getFromDateReservation());
-                reservationDTO.setOfDateReservation(modReservation.getOfDateReservation());
-                reservationDTOS.add(reservationDTO);
-            }
+//            for (Reservation modReservation : modCarRental.getReservations()) {
+//                ReservationDTO reservationDTO = new ReservationDTO();
+//                reservationDTO.setId(modReservation.getId());
+//                reservationDTO.setReservationDate(modReservation.getReservationDate());
+//                reservationDTO.setFromDateReservation(modReservation.getFromDateReservation());
+//                reservationDTO.setOfDateReservation(modReservation.getOfDateReservation());
+//                reservationDTOS.add(reservationDTO);
+//            }
             newCarRentalDTO.setReservationDTOS(reservationDTOS);
             carRentalDTOS.add(newCarRentalDTO);
         }

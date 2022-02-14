@@ -5,10 +5,12 @@ import carService.dto.entity.carHairService.car.DescriptionCarDTO;
 import carService.entity.Car.DescriptionCar;
 import carService.repository.car.DescriptionCarRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -20,7 +22,6 @@ public class DescriptionCarService {
 
 
     public  List<DescriptionCarDTO> getAllById(Long id){
-//        List<DescriptionCarDTO> descriptionCarDTOS= new LinkedList<>();
         try{
             return descriptionCarMapper.toDto(descriptionCarRepository.findAllByIdCar(id));
         }catch (Exception e){
@@ -28,7 +29,7 @@ public class DescriptionCarService {
         }
 
 return null;
-//        return descriptionCarMapper.toDto(descriptionCarRepository.findById(id));
+
     }
     public  List<DescriptionCarDTO> getAll(){
  return descriptionCarMapper.toDto(descriptionCarRepository.findAll());

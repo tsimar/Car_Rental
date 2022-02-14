@@ -33,8 +33,7 @@ public class Reservation {
     @OneToMany( mappedBy = "reservation")
     private List<DescriptionCar> descriptionCars;
 //
-    @OneToMany( mappedBy = "reservation")
-    private List<Customer> customers;
+   private int userId;
 //
     @OneToMany( mappedBy = "reservationRental")
     private List<CarRentalDepartment> carRentalDepartmentsRental;

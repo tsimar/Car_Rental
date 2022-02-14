@@ -20,19 +20,18 @@ public class CarReturn {
 
 
     private Long employeeId;
-
+    private Long userId;
     private Date returnDate;
     private String commentsRental;
     private String commentsCustomer;
     private double supplement;
 
-    @OneToMany (fetch = FetchType.LAZY,mappedBy = "carReturn",orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "carReturn", orphanRemoval = true)
     private List<Reservation> reservations;
 
     @ManyToOne
     @JoinColumn(name = "income_money_id")
     private IncomeMoney incomeMoney;
-
 
 
 }

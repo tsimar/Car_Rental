@@ -41,7 +41,7 @@ public class DescriptionCar {
     private List<RentalsAmountCar> rentalsAmountCarList;
 
 
-    @ManyToOne
-    @JoinColumn(name = "car_rental_department_description_id")
-    private CarRentalDepartment carRentalDepartment;
+//    @ManyToOne
+//    @JoinColumn(name = "car_rental_department_description_id")
+//    private CarRentalDepartment carRentalDepartment;
 }

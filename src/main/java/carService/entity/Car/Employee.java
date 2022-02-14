@@ -17,9 +17,11 @@ public class Employee {
     private String name;
     private String lastName;
     private String position;
+    private Long carRentalDepartID;
+private int userID;
 
-    @ManyToOne
-      @JoinColumn(name = "car_rental_department_id")
-    private CarRentalDepartment carRentalDepartment;
+//    @ManyToOne
+//      @JoinColumn(name = "car_rental_department_id")
+//    private CarRentalDepartment carRentalDepartment;
 
 }

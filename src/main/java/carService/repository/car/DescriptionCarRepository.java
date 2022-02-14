@@ -1,6 +1,5 @@
 package carService.repository.car;
 
-import carService.dto.entity.carHairService.car.DescriptionCarDTO;
 import carService.entity.Car.DescriptionCar;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -37,7 +36,6 @@ public interface DescriptionCarRepository extends JpaRepository<DescriptionCar,L
     );
 
     @Transactional
-//    @Modifying(clearAutomatically = true)
     @Query(value = "SELECT d FROM DescriptionCar d WHERE d.carRentalDepartID=:carRentalDepartID")
     List<DescriptionCar> findAllByIdCar(@Param("carRentalDepartID") Long id);
 }

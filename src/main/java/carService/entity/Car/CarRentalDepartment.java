@@ -24,16 +24,7 @@ public class CarRentalDepartment {
     private String city;
     private String address;
 
-    @OneToMany (mappedBy = "carRentalDepartment")
-    private List<Employee> employees;
-
-
-    @OneToMany (mappedBy = "carRentalDepartment")
-    private List<DescriptionCar> descriptionCars;
-
-
-
-
+    private int userId;
     @ManyToOne
     @JoinColumn(name = "reservation_rental_id")
     @JsonIgnore

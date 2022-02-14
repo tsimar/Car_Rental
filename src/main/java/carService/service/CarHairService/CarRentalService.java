@@ -1,51 +1,59 @@
 package carService.service.CarHairService;
 
 import carService.converter.CarRentalAndReservationConverter;
-import carService.dto.entity.carHairService.CarRentalDTO;
+import carService.converter.mapper.UpdateCarRentalMapper;
 import carService.dto.entity.carHairService.UpdateCarRentalDTO;
 import carService.entity.CarHairService.CarRental;
-import carService.entity.CarHairService.Reservation;
-import carService.converter.mapper.UpdateCarRentalMapper;
 import carService.repository.CarHairService.CarRentalRepository;
-import carService.repository.CarHairService.ReservationRepository;
-import lombok.Getter;
+import carService.service.customer.UserService;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.List;
 
 @Service
-@Getter
+@AllArgsConstructor
 public class CarRentalService {
 
     private final CarRentalRepository carRentalRepository;
-    private final ReservationRepository reservationRepository;
+
 
     private final UpdateCarRentalMapper updateCarRentalMapper = UpdateCarRentalMapper.INSTANCE;
     CarRentalAndReservationConverter converter = new CarRentalAndReservationConverter();
 
-    public CarRentalService(CarRentalRepository carRentalRepository, ReservationRepository reservationRepository) {
+    @Autowired
+    public CarRentalService(CarRentalRepository carRentalRepository) {
         this.carRentalRepository = carRentalRepository;
-        this.reservationRepository = reservationRepository;
+
+
     }
+
+
 
     @Transactional
     public CarRental save(CarRental newCarRental) {
         carRentalRepository.save(newCarRental);
-        for (Reservation mod : newCarRental.getReservations()) {
-            mod.setCarRental(newCarRental);
-            reservationRepository.save(mod);
-        }
         return carRentalRepository.save(newCarRental);
     }
 
     @Transactional
-    public List<CarRentalDTO> getAll() {
-        return converter.carRentalDTO(carRentalRepository.findAll());
+    public List<CarRental> getAll() {
+        return carRentalRepository.findAll();
     }
 
 
-    public CarRental editCarRental( CarRental carRentalDetails) {
+    public List<CarRental> getAllByCompIdAndUserId(Long companyId, Long userId) {
+
+        return carRentalRepository.findAllByCompanyIdAndUserId(companyId, userId);
+    }
+    public List<CarRental> getAllByCompId(Long companyId) {
+
+        return carRentalRepository.findAllByCompanyId(companyId);
+    }
+
+    public CarRental editCarRental(CarRental carRentalDetails) {
 
         UpdateCarRentalDTO updateCarRentalDTO = updateCarRentalMapper.toDto(carRentalDetails);
         CarRental carRental = updateCarRentalMapper.toEntity(updateCarRentalDTO);

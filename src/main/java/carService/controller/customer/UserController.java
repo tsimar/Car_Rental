@@ -1,28 +1,40 @@
 package carService.controller.customer;
 
 
+import carService.dto.entity.carHairService.user.EmployeeAndCompanyDTO;
+import carService.dto.entity.carHairService.user.UserByCompaniesDTO;
 import carService.entity.Customer.User;
+import carService.service.customer.EmployeeAndCompanyServer;
 import carService.service.customer.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/users")
-@CrossOrigin("*")
+@CrossOrigin
 public class UserController {
     private final UserService userService;
+private final EmployeeAndCompanyServer employeeAndCompanyServer;
 
-    public UserController(UserService userService) {
+
+    public UserController(UserService userService, EmployeeAndCompanyServer employeeAndCompanyServer) {
         this.userService = userService;
+
+        this.employeeAndCompanyServer=employeeAndCompanyServer;
     }
 
     @GetMapping
-    public List<User> findAll() {
-        return userService.findAll();
+    public ResponseEntity<List<User>> findAll() {
+        return ResponseEntity.ok(userService.findAll());
+    }
+
+
+    @GetMapping("/{companyId}")
+    public ResponseEntity<List<UserByCompaniesDTO>> findAllCompany(@PathVariable Long companyId) {
+        return ResponseEntity.ok(userService.getALLUserByCompanyId(companyId));
     }
 
     @PostMapping()
@@ -35,6 +47,7 @@ public class UserController {
             return ResponseEntity.ok(userService.save(newUser));
         }
     }
+
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id ) {

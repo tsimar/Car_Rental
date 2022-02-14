@@ -23,8 +23,12 @@ public class EmployeeController {
         this.employeeService=employeeService;
     }
     @GetMapping
-    public ResponseEntity<List<EmployeeDTO>> getCarRental() {
+    public ResponseEntity<List<EmployeeDTO>> getEmployees() {
         return ResponseEntity.ok(employeeService.getAll());
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<List<Employee>> getEmployees(@PathVariable Long id) {
+        return ResponseEntity.ok(employeeService.getAllById(id));
     }
 
     @PostMapping
@@ -34,14 +38,14 @@ public class EmployeeController {
 
 
     @PutMapping()
-    public void editCar (@RequestBody Employee employee)
+    public void editEmpl (@RequestBody Employee employee)
     {
-        employeeService.editCar(employee);
+        employeeService.editEmpl(employee);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCarById(@PathVariable Long id) {
+    public void deleteEmplById(@PathVariable Long id) {
 
-        employeeService.deleteCar(id);
+        employeeService.deleteEmpl(id);
     }
 }

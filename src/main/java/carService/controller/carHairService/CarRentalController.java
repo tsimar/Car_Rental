@@ -25,8 +25,13 @@ public class CarRentalController {
         return ResponseEntity.ok(carRentalService.save(carRental));
     }
 
+    @GetMapping( "/{companyId}/{userId}")
+    public  ResponseEntity<List<CarRental>> getCarRentalByIdCompany(@PathVariable Long companyId,@PathVariable Long userId) {
+        return ResponseEntity.ok(carRentalService.getAllByCompIdAndUserId(companyId,userId));
+    }
+
     @GetMapping
-    public ResponseEntity<List<CarRentalDTO>> getCarRental() {
+    public ResponseEntity<List<CarRental>> getCarRental() {
         return ResponseEntity.ok(carRentalService.getAll());
     }
 
