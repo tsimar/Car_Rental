@@ -46,8 +46,10 @@ public class EmployeeService {
                         employee.getName(),
                         employee.getLastName(),
                         employee.getPosition(),
-                        employee.getId()
+                        employee.getUserID(),
+                        employee.getCarRentalDepartID(),
 
+                        employee.getId()
                 );
     }
 

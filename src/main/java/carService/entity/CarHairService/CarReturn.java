@@ -21,6 +21,7 @@ public class CarReturn {
 
     private Long employeeId;
     private Long userId;
+    private Long companyId;
     private Date returnDate;
     private String commentsRental;
     private String commentsCustomer;

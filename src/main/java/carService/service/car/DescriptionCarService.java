@@ -36,6 +36,9 @@ return null;
 
     }
     public DescriptionCar save(DescriptionCar descriptionCar){
+        if (descriptionCar.getCarRentalDepartID()==null){
+            return  null;
+        }
         return descriptionCarRepository.save(descriptionCar);
     }
     public void deleteCar(Long id){

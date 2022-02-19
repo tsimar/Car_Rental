@@ -14,8 +14,14 @@ import java.util.List;
 public interface EmployeeRepository extends JpaRepository<Employee,Long> {
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "UPDATE Employee u SET u.name=:name, u.lastName=:lastName, u.position=:position WHERE u.id=:id")
-    int update(@Param("name") String name, @Param("lastName") String lastName,@Param("position") String position, @Param("id") Long id);
+    @Query(value = "UPDATE Employee u SET u.name=:name," +
+            " u.lastName=:lastName, u.position=:position," +
+            " u.userID=:userID, u.carRentalDepartID=:carRentalDepartID WHERE u.id=:id")
+    int update(@Param("name") String name, @Param("lastName") String lastName,
+               @Param("position") String position,
+               @Param("userID") int userID,
+               @Param("carRentalDepartID") Long carRentalDepartID,
+               @Param("id") Long id);
 
 
     @Transactional

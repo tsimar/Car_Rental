@@ -1,9 +1,7 @@
 package carService.controller.carHairService;
 
 
-import carService.dto.entity.carHairService.CarRentalDTO;
 import carService.entity.CarHairService.CarRental;
-import carService.entity.Customer.User;
 import carService.service.CarHairService.CarRentalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

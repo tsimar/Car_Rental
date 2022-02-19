@@ -8,4 +8,6 @@ public class EmployeeDTO {
     private String name;
     private String lastName;
     private String position;
+      private Long carRentalDepartID;
+    private int userID;
 }

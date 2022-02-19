@@ -27,10 +27,7 @@ public class CarRentalService {
     public CarRentalService(CarRentalRepository carRentalRepository) {
         this.carRentalRepository = carRentalRepository;
 
-
     }
-
-
 
     @Transactional
     public CarRental save(CarRental newCarRental) {
@@ -43,7 +40,7 @@ public class CarRentalService {
         return carRentalRepository.findAll();
     }
 
-
+    @Transactional
     public List<CarRental> getAllByCompIdAndUserId(Long companyId, Long userId) {
 
         return carRentalRepository.findAllByCompanyIdAndUserId(companyId, userId);
