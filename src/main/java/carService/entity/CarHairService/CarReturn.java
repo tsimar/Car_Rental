@@ -23,7 +23,7 @@ public class CarReturn {
     private Long userId;
     private Long companyId;
     private Date returnDate;
-    private String commentsRental;
+    private String commentsReturn;
     private String commentsCustomer;
     private double supplement;
 

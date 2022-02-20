@@ -23,7 +23,7 @@ public class UserByCompanyConverter {
             for (CarRental modCarRental : carRentals) {
                 if (modCarRental.getUserId() == modUser.getId())  {
                     newUser.setId(modUser.getId());
-                    newUser.setName(modUser.getUserName());
+                    newUser.setUserName(modUser.getUserName());
                     userByCompaniesDTOS.add(newUser);
                     break;
 

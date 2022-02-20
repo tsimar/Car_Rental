@@ -1,8 +1,10 @@
 package carService.service.CarHairService;
 
+import carService.entity.CarHairService.CarRental;
 import carService.entity.CarHairService.CarReturn;
 import carService.repository.CarHairService.CarReturnRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,5 +21,9 @@ public class CarReturnService {
     public List<CarReturn> getAllByCompId(Long companyId) {
 
         return carReturnRepository.findAllByCompanyId(companyId);
+    }
+    @Transactional
+    public List<CarReturn> getAll() {
+        return carReturnRepository.findAll();
     }
 }

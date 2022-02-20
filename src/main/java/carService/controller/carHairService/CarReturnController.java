@@ -22,4 +22,9 @@ public class CarReturnController {
     public ResponseEntity<List<CarReturn>> getCarReturnByIdCompany(@PathVariable Long companyId, @PathVariable Long userId) {
         return ResponseEntity.ok(carReturnService.getAllByCompanyIdAndUserId(companyId, userId));
     }
+
+    @GetMapping
+    public ResponseEntity<List<CarReturn>>getAll(){
+        return ResponseEntity.ok(carReturnService.getAll());
+    }
 }
