@@ -1,10 +1,9 @@
 package carService.controller.customer;
 
 
-import carService.dto.entity.carHairService.user.EmployeeAndCompanyDTO;
 import carService.dto.entity.carHairService.user.UserByCompaniesDTO;
 import carService.entity.Customer.User;
-import carService.service.customer.EmployeeAndCompanyServer;
+import carService.entity.Customer.UserToDepartment;
 import carService.service.customer.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,14 +16,11 @@ import java.util.List;
 @CrossOrigin
 public class UserController {
     private final UserService userService;
-private final EmployeeAndCompanyServer employeeAndCompanyServer;
 
 
-    public UserController(UserService userService, EmployeeAndCompanyServer employeeAndCompanyServer) {
+    public UserController(UserService userService) {
         this.userService = userService;
-
-        this.employeeAndCompanyServer=employeeAndCompanyServer;
-    }
+           }
 
     @GetMapping
     public ResponseEntity<List<User>> findAll() {
@@ -34,13 +30,14 @@ private final EmployeeAndCompanyServer employeeAndCompanyServer;
 
     @GetMapping("/{companyId}")
     public ResponseEntity<List<UserByCompaniesDTO>> findAllCompany(@PathVariable Long companyId) {
+
         return ResponseEntity.ok(userService.getALLUserByCompanyId(companyId));
     }
 
     @PostMapping()
     public ResponseEntity<User> newUser(@RequestBody User newUser) {
 
-        if (newUser.getUserName()==null || newUser.getUserPassword()==null) {
+        if (newUser.getUserName() == null || newUser.getUserPassword() == null) {
             throw new RuntimeException("You must define new user");
 
         } else {
@@ -50,9 +47,9 @@ private final EmployeeAndCompanyServer employeeAndCompanyServer;
 
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id ) {
+    public void deleteUser(@PathVariable Long id) {
 
-        if (id==null) {
+        if (id == null) {
             throw new RuntimeException("You must define new user");
         } else {
             userService.deleteUser(id);
@@ -60,8 +57,8 @@ private final EmployeeAndCompanyServer employeeAndCompanyServer;
     }
 
     @PutMapping()
-    public void editUser( @RequestBody User user ){
-       userService.editUser(user);
+    public void editUser(@RequestBody User user) {
+        userService.editUser(user);
     }
 
 }

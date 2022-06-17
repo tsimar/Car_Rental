@@ -37,5 +37,5 @@ public interface DescriptionCarRepository extends JpaRepository<DescriptionCar,L
 
     @Transactional
     @Query(value = "SELECT d FROM DescriptionCar d WHERE d.carRentalDepartID=:carRentalDepartID")
-    List<DescriptionCar> findAllByIdCar(@Param("carRentalDepartID") Long id);
+    List<DescriptionCar> findAllByIdCompany(@Param("carRentalDepartID") Long id);
 }

@@ -11,13 +11,13 @@ import javax.persistence.*;
 @Data
 public class User {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String userName;
     private String userPassword;
+    private int departmentId;
 
-
-@OneToOne (fetch = FetchType.LAZY,mappedBy = "user")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
     private Customer customer;
 }

@@ -1,6 +1,7 @@
 package carService.controller.carHairService;
 
 
+import carService.dto.entity.carHairService.carHairService.CarRentalByCompanyDTO;
 import carService.entity.CarHairService.CarRental;
 import carService.service.CarHairService.CarRentalService;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class CarRentalController {
     }
 
     @GetMapping( "/{companyId}/{userId}")
-    public  ResponseEntity<List<CarRental>> getCarRentalByIdCompany(@PathVariable Long companyId,@PathVariable Long userId) {
+    public  ResponseEntity<List<CarRentalByCompanyDTO>> getCarRentalByIdCompany(@PathVariable Long companyId, @PathVariable Long userId) {
         return ResponseEntity.ok(carRentalService.getAllByCompIdAndUserId(companyId,userId));
     }
 

@@ -13,4 +13,10 @@ public class CarRentalByCompanyDTO {
     private Date rentalDate;
     private String commentsRental;
     private String commentsCustomer;
+
+    private Long descriptionCarId;
+    private String carBrand;
+    private String model;
+    private String carType;
+    private String carNumber;
 }

@@ -6,7 +6,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-02-13T17:44:19+0100",
+    date = "2022-06-17T19:13:28+0200",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.1 (Oracle Corporation)"
 )
 public class UpdateCarRentalMapperImpl implements UpdateCarRentalMapper {
@@ -36,11 +36,11 @@ public class UpdateCarRentalMapperImpl implements UpdateCarRentalMapper {
 
         CarRental carRental = new CarRental();
 
+        carRental.setId( dto.getId() );
         carRental.setEmployeeId( dto.getEmployeeId() );
         carRental.setRentalDate( dto.getRentalDate() );
         carRental.setCommentsRental( dto.getCommentsRental() );
         carRental.setCommentsCustomer( dto.getCommentsCustomer() );
-        carRental.setId( dto.getId() );
 
         return carRental;
     }

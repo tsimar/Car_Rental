@@ -26,10 +26,12 @@ public class DescriptionCar {
     private String carType;
     private Date productionDate;
     private String color;
-    private double carMileage;
+    private int carMileage;
     private String statusRental;
     private String carStatus;
- private Long carRentalDepartID;
+    private Long carRentalDepartID;
+    private String carNumber;
+
     public Long getId() {
         return id;
     }

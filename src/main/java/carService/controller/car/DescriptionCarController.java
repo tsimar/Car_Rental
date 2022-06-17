@@ -20,9 +20,9 @@ public DescriptionCarController (DescriptionCarService descriptionCarService)
 {
     this.descriptionCarService=descriptionCarService;
 }
-    @GetMapping("/{id}")
-    public ResponseEntity<List<DescriptionCarDTO>> getCarRental(@PathVariable Long id) {
-        return ResponseEntity.ok(descriptionCarService.getAllById(id));
+    @GetMapping("/{companyId}")
+    public ResponseEntity<List<DescriptionCarDTO>> getCarRental(@PathVariable Long companyId) {
+        return ResponseEntity.ok(descriptionCarService.getAllByCompanyId(companyId));
     }
     @GetMapping
     public ResponseEntity<List<DescriptionCarDTO>> getCarRental() {

@@ -5,8 +5,9 @@ import carService.converter.mapper.user.UserByCompanyConverter;
 import carService.dto.entity.carHairService.user.UserByCompaniesDTO;
 import carService.entity.CarHairService.CarRental;
 import carService.entity.Customer.User;
+import carService.entity.Customer.UserToDepartment;
 import carService.repository.Customer.UserRepository;
-import carService.service.CarHairService.CarRentalService;
+import carService.repository.Customer.UserToDepartmentRepository;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +19,11 @@ import java.util.List;
 
 public class UserService {
     private final UserRepository userRepository;
-  private final CarRentalService carRentalService;
+    private final UserToDepartmentRepository userToDepartmentRepository;
 
-    public UserService(UserRepository userRepository, CarRentalService carRentalService) {
+    public UserService(UserRepository userRepository, UserToDepartmentRepository userToDepartmentRepository) {
         this.userRepository = userRepository;
-   this.carRentalService = carRentalService;
+        this.userToDepartmentRepository = userToDepartmentRepository;
 
     }
 
@@ -32,10 +33,9 @@ public class UserService {
 
     public List<UserByCompaniesDTO> getALLUserByCompanyId(Long companyId) {
         UserByCompanyConverter userConverter = new UserByCompanyConverter();
-        List<CarRental> carRentals = new LinkedList<>();
-        carRentals= carRentalService.getAllByCompId(companyId);
+        List<UserToDepartment> users = userToDepartmentRepository.findUsersIdByDepartmentId(companyId);
         List<User> allUsers = findAll();
-        return  userConverter.userByCompanyDTOS(carRentals, allUsers);
+        return userConverter.userByCompanyDTOS(users, allUsers);
     }
 
     public User save(User newUser) {

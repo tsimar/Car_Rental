@@ -17,7 +17,8 @@ public class IncomeMoney {
     private Long id;
     private double incomeMoney;
     private Date incomeDate;
+    private Long carReturnId;
 
-    @OneToMany(mappedBy = "incomeMoney")
-    private List<CarReturn> carReturns;
+//    @OneToMany(mappedBy = "incomeMoney")
+//    private List<CarReturn> carReturns;
 }

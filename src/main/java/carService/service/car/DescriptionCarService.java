@@ -5,12 +5,9 @@ import carService.dto.entity.carHairService.car.DescriptionCarDTO;
 import carService.entity.Car.DescriptionCar;
 import carService.repository.car.DescriptionCarRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -21,27 +18,32 @@ public class DescriptionCarService {
     private final DescriptionCarMapper descriptionCarMapper = DescriptionCarMapper.INSTANCE;
 
 
-    public  List<DescriptionCarDTO> getAllById(Long id){
-        try{
-            return descriptionCarMapper.toDto(descriptionCarRepository.findAllByIdCar(id));
-        }catch (Exception e){
+
+
+    public List<DescriptionCarDTO> getAllByCompanyId(Long companyId) {
+        try {
+            return descriptionCarMapper.toDto(descriptionCarRepository.findAllByIdCompany(companyId));
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-return null;
+        return null;
 
     }
-    public  List<DescriptionCarDTO> getAll(){
- return descriptionCarMapper.toDto(descriptionCarRepository.findAll());
+
+    public List<DescriptionCarDTO> getAll() {
+        return descriptionCarMapper.toDto(descriptionCarRepository.findAll());
 
     }
-    public DescriptionCar save(DescriptionCar descriptionCar){
-        if (descriptionCar.getCarRentalDepartID()==null){
-            return  null;
+
+    public DescriptionCar save(DescriptionCar descriptionCar) {
+        if (descriptionCar.getCarRentalDepartID() == null) {
+            return null;
         }
         return descriptionCarRepository.save(descriptionCar);
     }
-    public void deleteCar(Long id){
+
+    public void deleteCar(Long id) {
         descriptionCarRepository.deleteById(id);
     }
 

@@ -19,16 +19,12 @@ public class ReservationService {
     public ReservationService(ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
     }
-
-
     public Reservation save(Reservation reservation) {
         return reservationRepository.save(reservation);
     }
 
     @Transactional
     public List<ReservationDTO> getAll() {
-//        List<Reservation> reservations = reservationRepository.findAll();
-//        List<ReservationDTO> reservationDTOS = reservationMapper.toDto(reservations);
         return reservationMapper.toDto(reservationRepository.findAll());
 
     }

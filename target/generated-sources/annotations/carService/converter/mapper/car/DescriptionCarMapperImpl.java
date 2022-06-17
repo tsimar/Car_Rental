@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-02-08T21:48:54+0100",
+    date = "2022-06-17T19:13:29+0200",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.1 (Oracle Corporation)"
 )
 public class DescriptionCarMapperImpl implements DescriptionCarMapper {
@@ -75,7 +75,7 @@ public class DescriptionCarMapperImpl implements DescriptionCarMapper {
         descriptionCar.setCarType( descriptionCarDTO.getCarType() );
         descriptionCar.setProductionDate( descriptionCarDTO.getProductionDate() );
         descriptionCar.setColor( descriptionCarDTO.getColor() );
-        descriptionCar.setCarMileage( descriptionCarDTO.getCarMileage() );
+        descriptionCar.setCarMileage( (int) descriptionCarDTO.getCarMileage() );
         descriptionCar.setStatusRental( descriptionCarDTO.getStatusRental() );
         descriptionCar.setCarStatus( descriptionCarDTO.getCarStatus() );
         descriptionCar.setCarRentalDepartID( descriptionCarDTO.getCarRentalDepartID() );
