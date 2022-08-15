@@ -19,6 +19,7 @@ public class CarRental {
     private Long userId;
     private Long companyId;
     private Long descriptionCarId;
+
     private Date rentalDate;
     private String commentsRental;
     private String commentsCustomer;

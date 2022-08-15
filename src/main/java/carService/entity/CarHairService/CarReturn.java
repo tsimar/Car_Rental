@@ -14,18 +14,20 @@ public class CarReturn  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String commentsReturn;
-    private String commentsCustomer;
+
     private Long companyId;
-
-
+    private Long userId;
     private Long descriptionCarId;
     private Long employeeId;
+
     private Long incomeMoney;
     private Date returnDate;
     private double supplement;
 
-    private Long userId;
+    private String commentsReturn;
+    private String commentsCustomer;
+
+
 
 //@Embedded
 //@AttributeOverrides(

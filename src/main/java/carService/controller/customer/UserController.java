@@ -2,8 +2,8 @@ package carService.controller.customer;
 
 
 import carService.dto.entity.carHairService.user.UserByCompaniesDTO;
+import carService.dto.entity.carHairService.user.User_CustomerDTO;
 import carService.entity.Customer.User;
-import carService.entity.Customer.UserToDepartment;
 import carService.service.customer.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -26,16 +26,20 @@ public class UserController {
     public ResponseEntity<List<User>> findAll() {
         return ResponseEntity.ok(userService.findAll());
     }
+    @GetMapping("/login/{user}")
+    public ResponseEntity<List<User>> findUser(@PathVariable String user) {
 
+        return ResponseEntity.ok(userService.getUser(user));
+    }
 
     @GetMapping("/{companyId}")
-    public ResponseEntity<List<UserByCompaniesDTO>> findAllCompany(@PathVariable Long companyId) {
+    public ResponseEntity<List<UserByCompaniesDTO>> findAllCompany(@PathVariable int companyId) {
 
         return ResponseEntity.ok(userService.getALLUserByCompanyId(companyId));
     }
 
     @PostMapping()
-    public ResponseEntity<User> newUser(@RequestBody User newUser) {
+    public ResponseEntity<User> newUser(@RequestBody User_CustomerDTO newUser) {
 
         if (newUser.getUserName() == null || newUser.getUserPassword() == null) {
             throw new RuntimeException("You must define new user");

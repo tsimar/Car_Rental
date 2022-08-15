@@ -22,7 +22,8 @@ public class CarReturnController {
 
     @GetMapping("/{companyId}/{userId}")
     public ResponseEntity<List<CarReturnByCompanyDTO>> getCarReturnByIdCompany(@PathVariable Long companyId, @PathVariable Long userId) {
-        return ResponseEntity.ok(carReturnService.getAllByCompanyIdAndUserId(companyId, userId));
+        List<CarReturnByCompanyDTO> sss=carReturnService.getAllByCompanyIdAndUserId(companyId, userId);
+        return ResponseEntity.ok(sss);
     }
 
     @GetMapping

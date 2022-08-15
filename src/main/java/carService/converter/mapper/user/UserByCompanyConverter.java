@@ -22,6 +22,7 @@ public class UserByCompanyConverter {
                 if (items.getUserId() == modUser.getId()) {
                     newUser.setId(modUser.getId());
                     newUser.setUserName(modUser.getUserName());
+                    newUser.setUserPassword(modUser.getUserPassword());
                     userByCompaniesDTOS.add(newUser);
                     break;
 
