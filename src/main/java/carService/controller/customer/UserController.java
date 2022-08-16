@@ -20,16 +20,17 @@ public class UserController {
 
     public UserController(UserService userService) {
         this.userService = userService;
-           }
+    }
 
     @GetMapping
     public ResponseEntity<List<User>> findAll() {
         return ResponseEntity.ok(userService.findAll());
     }
-    @GetMapping("/login/{user}")
-    public ResponseEntity<List<User>> findUser(@PathVariable String user) {
 
-        return ResponseEntity.ok(userService.getUser(user));
+    @GetMapping("/login/{name}")
+    public ResponseEntity<String> loginUser(@PathVariable String name) {
+
+        return ResponseEntity.ok(userService.loginUser(name));
     }
 
     @GetMapping("/{companyId}")

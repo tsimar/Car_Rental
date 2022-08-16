@@ -75,4 +75,10 @@ public class UserService {
 
     }
 
+    public String loginUser(String name) {
+        User user1=new User();
+        user1.setUserName(name);
+        String i=(userRepository.loginUser(name));
+        return i;
+    }
 }
