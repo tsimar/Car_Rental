@@ -5,14 +5,11 @@ import carService.converter.mapper.user.UserByCompanyConverter;
 import carService.converter.mapper.user.UserCustomerToCustomer_UserConverter;
 import carService.dto.entity.carHairService.user.UserByCompaniesDTO;
 import carService.dto.entity.carHairService.user.User_CustomerDTO;
-import carService.entity.Customer.Customer;
 import carService.entity.Customer.User;
 import carService.entity.Customer.UserToDepartment;
-import carService.repository.Customer.CustomerInfoRepository;
-import carService.repository.Customer.UserRepository;
 import carService.repository.Customer.UserIdByDepartmentIdRepository;
+import carService.repository.Customer.UserRepository;
 import lombok.Getter;
-import org.hibernate.collection.internal.PersistentList;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -75,10 +72,15 @@ public class UserService {
 
     }
 
-    public String loginUser(String name) {
-        User user1=new User();
+    public User loginUser(String name, String password) {
+        User user1 = new User();
         user1.setUserName(name);
-        String i=(userRepository.loginUser(name));
-        return i;
+
+        User getUser= (userRepository.loginUser(name,password));
+        if (getUser == null) {
+            user1.setUserName("non good login or don't password");
+            return user1;
+        }
+        return getUser;
     }
 }

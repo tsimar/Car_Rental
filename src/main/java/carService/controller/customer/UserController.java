@@ -27,10 +27,10 @@ public class UserController {
         return ResponseEntity.ok(userService.findAll());
     }
 
-    @GetMapping("/login/{name}")
-    public ResponseEntity<String> loginUser(@PathVariable String name) {
+    @GetMapping("/login/{name}/{password}")
+    public ResponseEntity<User> loginUser(@PathVariable String name, @PathVariable String password) {
 
-        return ResponseEntity.ok(userService.loginUser(name));
+        return ResponseEntity.ok(userService.loginUser(name,password));
     }
 
     @GetMapping("/{companyId}")
