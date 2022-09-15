@@ -5,10 +5,6 @@ import carService.entity.Customer.Customer;
 import carService.entity.Customer.User;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 @Component
 public class UserCustomerToCustomer_UserConverter {
 
@@ -22,7 +18,7 @@ public class UserCustomerToCustomer_UserConverter {
     }
 
     //    public List<User_CustomerDTO> user_customerDTO=new LinkedList<>();
-    public Customer saveCustomer(User_CustomerDTO user_customerDTO) {
+    public Customer saveCustomer(User_CustomerDTO user_customerDTO,long userId) {
 
         Customer customer = new Customer();
 
@@ -30,6 +26,7 @@ public class UserCustomerToCustomer_UserConverter {
         customer.setLastNameCustomer(user_customerDTO.getLastNameCustomer());
         customer.setEmail(user_customerDTO.getEmail());
         customer.setAddress(user_customerDTO.getAddress());
+        customer.setUserId(userId);
 
 
         return customer;

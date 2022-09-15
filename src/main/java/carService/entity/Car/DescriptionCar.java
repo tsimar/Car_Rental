@@ -31,6 +31,7 @@ public class DescriptionCar {
     private String carStatus;
     private Long carRentalDepartID;
     private String carNumber;
+    private String pathImg;
 
     public Long getId() {
         return id;

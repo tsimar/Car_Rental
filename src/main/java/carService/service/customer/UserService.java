@@ -49,8 +49,10 @@ public class UserService {
 
     public User save(User_CustomerDTO newUser) {
         UserCustomerToCustomer_UserConverter customer = new UserCustomerToCustomer_UserConverter();
-        customerInfoService.saveCustomer(customer.saveCustomer(newUser));
-        return userRepository.save(customer.saveUser(newUser));
+       User user=new User();
+       user= userRepository.save(customer.saveUser(newUser));
+        customerInfoService.saveCustomer(customer.saveCustomer(newUser,user.getId()));
+        return null;
 
     }
 

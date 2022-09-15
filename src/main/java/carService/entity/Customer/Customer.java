@@ -17,14 +17,8 @@ public class Customer {
     private String lastNameCustomer;
     private String email;
     private String address;
-
-    @ManyToOne
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+       private long reservationId;
+    private long userId;
 
 
 }

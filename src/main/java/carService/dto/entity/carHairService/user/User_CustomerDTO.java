@@ -11,4 +11,5 @@ public class User_CustomerDTO {
     private String email;
     private String address;
     private long departmentId;
+    private long userId;
 }

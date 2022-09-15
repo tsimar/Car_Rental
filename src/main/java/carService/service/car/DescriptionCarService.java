@@ -32,7 +32,8 @@ public class DescriptionCarService {
     }
 
     public List<DescriptionCarDTO> getAll() {
-        return descriptionCarMapper.toDto(descriptionCarRepository.findAll());
+        List<DescriptionCarDTO> testi=descriptionCarMapper.toDto(descriptionCarRepository.findAll());
+        return testi;
 
     }
 
