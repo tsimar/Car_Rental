@@ -13,12 +13,12 @@ public class UserCustomerToCustomer_UserConverter {
 //      List<User> newUser= new ArrayList<>();
         users.setUserName(user_customerDTO.getUserName());
         users.setUserPassword(user_customerDTO.getUserPassword());
-
+        users.setDepartmentId(user_customerDTO.getDepartmentId());
         return users;
     }
 
     //    public List<User_CustomerDTO> user_customerDTO=new LinkedList<>();
-    public Customer saveCustomer(User_CustomerDTO user_customerDTO,long userId) {
+    public Customer saveCustomer(User_CustomerDTO user_customerDTO, long userId) {
 
         Customer customer = new Customer();
 

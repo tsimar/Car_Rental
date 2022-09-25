@@ -16,7 +16,7 @@ public class User {
 
     private String userName;
     private String userPassword;
-    private int departmentId;
+    private long departmentId;
 
 //    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
 //    private Customer customer;

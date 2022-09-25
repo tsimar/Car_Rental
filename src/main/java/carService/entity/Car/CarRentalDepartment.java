@@ -24,14 +24,14 @@ public class CarRentalDepartment {
     private String address;
 
     private int userId;
-    @ManyToOne
-    @JoinColumn(name = "reservation_rental_id")
-    @JsonIgnore
-    private Reservation reservationRental;
-
-    @ManyToOne
-    @JoinColumn(name = "reservation_return_id")
-    private Reservation reservationReturn;
+//    @ManyToOne
+//    @JoinColumn(name = "reservation_rental_id")
+//    @JsonIgnore
+//    private Reservation reservationRental;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "reservation_return_id")
+//    private Reservation reservationReturn;
 
 
 }

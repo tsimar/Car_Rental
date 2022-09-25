@@ -33,15 +33,18 @@ public class DescriptionCar {
     private String carNumber;
     private String pathImg;
 
-    public Long getId() {
-        return id;
-    }
+    private  long reservation_id;
 
-    @ManyToOne
-    private Reservation reservation;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "descriptionCar")
-    private List<RentalsAmountCar> rentalsAmountCarList;
+//    public Long getId() {
+//        return id;
+//    }
+
+//    @ManyToOne
+//    private Reservation reservation;
+//
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "descriptionCar")
+//    private List<RentalsAmountCar> rentalsAmountCarList;
 
 
 //    @ManyToOne

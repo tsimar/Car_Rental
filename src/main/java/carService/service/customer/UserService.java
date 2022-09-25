@@ -38,7 +38,12 @@ public class UserService {
     public List<UserByCompaniesDTO> getALLUserByCompanyId(int companyId) {
         UserByCompanyConverter userConverter = new UserByCompanyConverter();
         List<UserToDepartment> users = new ArrayList<>();
-        users = userIdByDepartmentIdRepository.findUsersIdByDepartmentId(companyId);
+        try {
+            users=userIdByDepartmentIdRepository.findUsersIdByDepartmentId(companyId);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        //        users = userIdByDepartmentIdRepository.findUsersIdByDepartmentId(companyId);
         List<User> allUsers = findAll();
         return userConverter.userByCompanyDTOS(users, allUsers);
     }

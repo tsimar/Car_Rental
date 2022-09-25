@@ -30,16 +30,16 @@ public class Reservation {
     private Date ofDateReservation;
 
 
-    @OneToMany( mappedBy = "reservation")
-    private List<DescriptionCar> descriptionCars;
+//    @OneToMany( mappedBy = "reservation")
+//    private List<DescriptionCar> descriptionCars;
 //
    private int userId;
 //
-    @OneToMany( mappedBy = "reservationRental")
-    private List<CarRentalDepartment> carRentalDepartmentsRental;
-
-    @OneToMany( mappedBy = "reservationReturn")
-    private List<CarRentalDepartment> carRentalDepartmentsReturn;
+//    @OneToMany( mappedBy = "reservationRental")
+//    private List<CarRentalDepartment> carRentalDepartmentsRental;
+//
+//    @OneToMany( mappedBy = "reservationReturn")
+//    private List<CarRentalDepartment> carRentalDepartmentsReturn;
 
 
 
