@@ -22,12 +22,13 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserIdByDepartmentIdRepository userIdByDepartmentIdRepository;
     private final CustomerInfoService customerInfoService;
+    private final UserToDepartmentService userToDepartmentService;
 
-
-    public UserService(UserRepository userRepository, UserIdByDepartmentIdRepository userToDepartmentRepository, CustomerInfoService customerInfoService) {
+    public UserService(UserRepository userRepository, UserIdByDepartmentIdRepository userToDepartmentRepository, CustomerInfoService customerInfoService, UserToDepartmentService userToDepartmentService) {
         this.userRepository = userRepository;
         this.userIdByDepartmentIdRepository = userToDepartmentRepository;
         this.customerInfoService = customerInfoService;
+        this.userToDepartmentService = userToDepartmentService;
     }
 
     public List<User> findAll() {
@@ -35,16 +36,15 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<UserByCompaniesDTO> getALLUserByCompanyId(int companyId) {
+    public List<UserByCompaniesDTO> getALLUserByCompanyId(long companyId) {
         UserByCompanyConverter userConverter = new UserByCompanyConverter();
         List<UserToDepartment> users = new ArrayList<>();
         try {
-            users=userIdByDepartmentIdRepository.findUsersIdByDepartmentId(companyId);
-        }catch (Exception e){
+            users = userIdByDepartmentIdRepository.findUsersIdByDepartmentId(companyId);
+        } catch (Exception e) {
             System.out.println(e);
         }
-        //        users = userIdByDepartmentIdRepository.findUsersIdByDepartmentId(companyId);
-        List<User> allUsers = findAll();
+                List<User> allUsers = findAll();
         return userConverter.userByCompanyDTOS(users, allUsers);
     }
 
@@ -54,9 +54,9 @@ public class UserService {
 
     public User save(User_CustomerDTO newUser) {
         UserCustomerToCustomer_UserConverter customer = new UserCustomerToCustomer_UserConverter();
-       User user=new User();
-       user= userRepository.save(customer.saveUser(newUser));
-        customerInfoService.saveCustomer(customer.saveCustomer(newUser,user.getId()));
+        User user = userRepository.save(customer.saveUser(newUser));
+        userToDepartmentService.saveUserIdDepartmentId(user.getDepartmentId(), user.getId());
+        customerInfoService.saveCustomer(customer.saveCustomer(newUser, user.getId()));
         return null;
 
     }
@@ -83,7 +83,7 @@ public class UserService {
         User user1 = new User();
         user1.setUserName(name);
 
-        User getUser= (userRepository.loginUser(name,password));
+        User getUser = (userRepository.loginUser(name, password));
         if (getUser == null) {
             user1.setUserName("non good login or don't password");
             return user1;

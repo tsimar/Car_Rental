@@ -13,5 +13,5 @@ import java.util.List;
 public interface UserIdByDepartmentIdRepository extends JpaRepository<UserToDepartment, Long> {
     @Transactional
     @Query(value = "SELECT u FROM UserToDepartment u WHERE u.departmentId = :departmentId")
-   List<UserToDepartment> findUsersIdByDepartmentId(@Param("departmentId") int departmentId);
+   List<UserToDepartment> findUsersIdByDepartmentId(@Param("departmentId") long departmentId);
 }

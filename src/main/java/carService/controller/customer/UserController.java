@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @GetMapping("/login/{name}/{password}")
-    public ResponseEntity<User> loginUser(@PathVariable String name, @PathVariable String password) {
+    public ResponseEntity<?> loginUser(@PathVariable String name, @PathVariable String password) {
 
         return ResponseEntity.ok(userService.loginUser(name,password));
     }

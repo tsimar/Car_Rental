@@ -16,6 +16,14 @@ public class UserToDepartment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private int departmentId;
-    private int userId;
+    private long departmentId;
+    private long userId;
+
+    public UserToDepartment(long departmentId, long userId) {
+        this.departmentId = departmentId;
+        this.userId = userId;
+    }
+
+
+
 }
